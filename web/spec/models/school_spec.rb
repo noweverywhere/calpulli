@@ -12,4 +12,18 @@ RSpec.describe School, type: :model do
       expect(school.instructors).to include(instructor2)
     end
   end
+
+  describe "relationship to course_licenses" do
+    it "a school can have many course_licenses" do
+      school = FactoryBot.create :school
+      course_license1 = FactoryBot.create(
+        :course_license, school: school
+      )
+      course_license2 = FactoryBot.create(
+        :course_license, school: school
+      )
+
+      expect(school.course_licenses.count).to eql(2)
+    end
+  end
 end

@@ -5,4 +5,6 @@ class Instructor < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :school
+  has_many :course_licenses
+  has_many :courses, through: :course_licenses
 end
