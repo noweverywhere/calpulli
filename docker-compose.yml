@@ -5,7 +5,6 @@ services:
     build: web/
     volumes:
       - ./web:/usr/local/src/
-      - rubygems:/usr/local/bundle
     external_links:
       - postgres
     command: bundle exec rails s -p 3333 -b '0.0.0.0'
@@ -23,8 +22,3 @@ services:
       - PGDATABASE=hapi
       - PGHOST=postgres
       - PGUSER=postgres
-
-volumes:
-  rubygems:
-    driver: local
-
