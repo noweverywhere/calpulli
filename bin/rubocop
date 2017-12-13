@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+file="$(echo "$@" | sed 's/^web\///')" 
+
+docker-compose run --rm web bundle exec rubocop $file

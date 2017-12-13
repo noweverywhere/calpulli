@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+file="$(echo "$@" | sed 's/^web\///')" 
+
+docker-compose run -u $(id -u):$(id -g) --rm web bundle exec brakeman $file
