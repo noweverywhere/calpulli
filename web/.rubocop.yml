@@ -1,0 +1,94 @@
+AllCops:
+  DisabledByDefault: true
+  DisplayCopNames: true
+  TargetRubyVersion: 2.4
+  Exclude:
+   - 'bin/*'
+   - 'bin/**/*'
+
+CollectionMethods:
+  Enabled: true
+  PreferredMethods:
+    collect:  'map'
+    inject:   'reduce'
+    detect:   'find'
+    find_all: 'select'
+
+Lint/UselessAssignment:
+  Enabled: true
+
+Lint/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Style/AndOr:
+  Enabled: true
+
+Style/CaseIndentation:
+  EnforcedStyle: end
+  IndentOneStep: false
+
+Style/EmptyLineBetweenDefs:
+  Enabled: true
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: true
+
+Style/EmptyLinesAroundMethodBody:
+  Enabled: true
+
+Style/EmptyLinesAroundModuleBody:
+  Enabled: true
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+
+Style/IndentationConsistency:
+  Enabled: true
+
+Style/MultilineMethodCallBraceLayout:
+  EnforcedStyle: symmetrical
+  SupportedStyles:
+    # symmetrical: closing brace is positioned in same way as opening brace
+    # new_line: closing brace is always on a new line
+    # same_line: closing brace is always on the same line as last element
+    - symmetrical
+    - new_line
+
+Style/SpaceAfterColon:
+  Enabled: true
+
+Style/SpaceAfterComma:
+  Enabled: true
+
+Style/SpaceAroundBlockParameters:
+  Enabled: true
+
+Style/SpaceAroundOperators:
+  Enabled: true
+
+Style/SpaceBeforeBlockBraces:
+  Enabled: true
+
+Style/SpaceInsideBlockBraces:
+  Enabled: true
+
+Style/SpaceInsideBlockBraces:
+  Enabled: true
+
+Style/SpaceInsideBrackets:
+  Enabled: true
+
+Style/SpaceInsideParens:
+  Enabled: true
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/TrailingBlankLines:
+  Enabled: true
+
+TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
