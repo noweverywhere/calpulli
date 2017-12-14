@@ -4,7 +4,8 @@ class Instructor < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :school
+  has_one :school_instructor
+  has_one :school, through: :school_instructor
   has_many :course_licenses
   has_many :courses, through: :course_licenses
 end

@@ -1,10 +1,22 @@
 require "rails_helper"
 
-include Rails.application.routes.url_helpers
 RSpec.describe "instructors", type: :model do
-  describe "licensed_courses" do
-    let(:instructor) { FactoryBot.create :instructor }
+  describe "relationship to schools" do
+    it "is valid without a school" do
+      instructor = FactoryBot.create(:instructor)
 
+      expect(instructor.school).to be_nil
+    end
+
+    it "can also belong to a school" do
+      school = FactoryBot.create(:school)
+      instructor = FactoryBot.create(:instructor, school: school)
+
+      expect(instructor.school).to eql(school)
+    end
+  end
+
+  describe "licensed_courses" do
     it "returns a list of courses instructor is licensed to access" do
       school = FactoryBot.create :school
       instructor = FactoryBot.create(:instructor, school: school)
