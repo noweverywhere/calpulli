@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
     if current_instructor.courses.count == 1
       redirect_to course_path(current_instructor.courses.first)
     else
-      @courses = Course.all
+      @courses = current_instructor.courses
     end
   end
 
@@ -16,7 +16,7 @@ class CoursesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_course
-    @course = Course.find(params[:id])
+    @course = current_instructor.courses.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
