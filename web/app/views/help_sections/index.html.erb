@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Help Sections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Slug</th>
+      <th>Next</th>
+      <th>Previous</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @help_sections.each do |help_section| %>
+      <tr>
+        <td><%= help_section.title %></td>
+        <td><%= help_section.body %></td>
+        <td><%= help_section.slug %></td>
+        <td><%= help_section.next %></td>
+        <td><%= help_section.previous %></td>
+        <td><%= link_to 'Show', help_section %></td>
+        <td><%= link_to 'Edit', edit_help_section_path(help_section) %></td>
+        <td><%= link_to 'Destroy', help_section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Help Section', new_help_section_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @help_section.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @help_section.body %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @help_section.slug %>
+</p>
+
+<p>
+  <strong>Next:</strong>
+  <%= @help_section.next %>
+</p>
+
+<p>
+  <strong>Previous:</strong>
+  <%= @help_section.previous %>
+</p>
+
+<%= link_to 'Edit', edit_help_section_path(@help_section) %> |
+<%= link_to 'Back', help_sections_path %>

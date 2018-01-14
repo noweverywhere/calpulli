@@ -1,0 +1,42 @@
+<%= form_with(model: help_section, local: true) do |form| %>
+  <% if help_section.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(help_section.errors.count, "error") %> prohibited this help_section from being saved:</h2>
+
+      <ul>
+      <% help_section.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :help_section_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_field :body, id: :help_section_body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :slug %>
+    <%= form.text_field :slug, id: :help_section_slug %>
+  </div>
+
+  <div class="field">
+    <%= form.label :next %>
+    <%= form.text_field :next, id: :help_section_next %>
+  </div>
+
+  <div class="field">
+    <%= form.label :previous %>
+    <%= form.text_field :previous, id: :help_section_previous %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

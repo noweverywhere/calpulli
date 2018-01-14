@@ -3,9 +3,12 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.is_a?(Instructor)
-      if resource.courses.count == 1
+      case
+      when resource.sign_in_count == 1
+        welcome_path
+      when resource.courses.count == 1
         course_path(resource.courses.first)
-       else
+      else
         courses_path
       end
     end
