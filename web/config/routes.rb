@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :help_sections, path: "help", only: [:index, :show]
   authenticate :instructor do
     resources :courses, only: [:index, :show]
   end
