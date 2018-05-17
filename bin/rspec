@@ -4,4 +4,4 @@ set -euo pipefail
 
 file="$(echo "$@" | sed 's/^web\///')" 
 
-docker-compose run -u $(id -u):$(id -g) --rm web bundle exec rspec --format=documentation $file
+docker-compose run --rm web bundle exec rspec --format=documentation $file
