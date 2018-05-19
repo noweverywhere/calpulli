@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "HelpSections", type: :request do
   describe "GET /help_sections" do
