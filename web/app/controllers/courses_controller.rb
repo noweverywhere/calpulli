@@ -1,10 +1,12 @@
 class CoursesController < ApplicationController
+  before_action :authenticate_instructor!
   before_action :set_course, only: [:show]
 
   def index
     if current_instructor.courses.count == 1
       redirect_to course_path(current_instructor.courses.first)
     else
+      binding.pry
       @courses = current_instructor.courses
     end
   end
