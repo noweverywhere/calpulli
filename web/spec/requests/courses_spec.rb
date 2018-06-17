@@ -1,24 +1,64 @@
 require "rails_helper"
 
 RSpec.describe "Courses", type: :request do
-  describe "GET /courses" do
+  context "unathenticated" do
     it "redirects user to sign_in when unauthenticated" do
       get courses_path
+
       expect(response).to have_http_status(302)
-      expect(response.location).to include("sign_in")
+      expect(response.location).to include()
+    end
+  end
+
+  context "authenticated" do
+    describe "index" do
+      it "redirects to single course resource if instructor only has one" do
+        course_license = FactoryBot.create(:course_license)
+        sign_in course_license.instructor
+
+        get courses_path
+
+        expect(response).to have_http_status(302)
+        expect(response.location).to include(course_path(course_license.course))
+      end
+
+      it "returns the list of courses the instructor is licensded for" do
+        course_license = FactoryBot.create(:course_license)
+        FactoryBot.create(
+          :course_license,
+          school: course_license.school,
+          instructor: course_license.instructor
+        )
+        sign_in course_license.instructor
+
+        get courses_path
+
+        expect(response).to have_http_status(200)
+      end
     end
 
-		  describe "with instructor signed in" do
-        instructor = FactoryBot.create(:instructor, password: "There is no spoon")
+    describe "with instructor signed in" do
+      instructor = FactoryBot.create(:instructor)
+
+      before do
         sign_in instructor
-  
-  			   it "allows access to the course" do
-     			# 	#postbody = {:instructor => { :email => instructor.email, :password => "There is no spoon" }}
-     				get courses_path
-     			 require "pry"; binding.pry
-     			# 	expect(response).to have_http_status(302)
-     			# #	expect(response.location).to include("sign_in")
-     			end
-  		end
+      end
+
+      after do
+        sign_out instructor
+      end
+
+      it "allows access to the course" do
+        get courses_path
+
+        expect(response).to have_http_status(200)
+      end
+
+      it "allows access to the course" do
+        get courses_path
+
+        expect(response).to have_http_status(200)
+      end
+    end
   end
 end
