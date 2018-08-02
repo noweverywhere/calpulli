@@ -1,0 +1,11 @@
+<% if current_instructor.courses.any? %>
+  Courses:
+  <ul>
+    <% current_instructor.courses.each do |course| %>
+      <li> <%= link_to(course.title, course_path(course), method: :get) %> </li>
+    <% end %>
+  </ul>
+<% else %>
+  You're not enrolled in any courses
+<% end %>
+

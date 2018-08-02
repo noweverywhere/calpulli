@@ -17,6 +17,9 @@
     <ul class="hmenu">
       <%= render 'devise/menu/registration_items' %>
       <%= render 'devise/menu/login_items' %>
+      <% if instructor_signed_in? %>
+        <%= render 'layouts/logged_in_menu' %>
+      <% end %>
     </ul>
     <%= yield %>
   </body>

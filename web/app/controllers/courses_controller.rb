@@ -6,7 +6,6 @@ class CoursesController < ApplicationController
     if current_instructor.courses.count == 1
       redirect_to course_path(current_instructor.courses.first)
     else
-      binding.pry
       @courses = current_instructor.courses
     end
   end
