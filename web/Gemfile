@@ -32,3 +32,6 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
 end
+
+# Added at 2018-08-04 07:24:31 +0000 by :
+gem "pundit", "~> 2.0"
