@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-docker-compose run -u $(id -u):$(id -g) --rm web bash "$@"
+set -euo pipefail
 
+docker-compose run --rm web bash "$@"
