@@ -1,39 +1,11 @@
 class CourseModulesController < ApplicationController
   before_action :set_course_module, only: [:show, :edit, :update, :destroy]
 
-  # GET /course_modules
-  # GET /course_modules.json
-  def index
-    @course_modules = CourseModule.all
-  end
-
   # GET /course_modules/1
   # GET /course_modules/1.json
   def show
-  end
-
-  # GET /course_modules/new
-  def new
-    @course_module = CourseModule.new
-  end
-
-  # GET /course_modules/1/edit
-  def edit
-  end
-
-  # POST /course_modules
-  # POST /course_modules.json
-  def create
-    @course_module = CourseModule.new(course_module_params)
-
-    respond_to do |format|
-      if @course_module.save
-        format.html { redirect_to @course_module, notice: 'Course module was successfully created.' }
-        format.json { render :show, status: :created, location: @course_module }
-      else
-        format.html { render :new }
-        format.json { render json: @course_module.errors, status: :unprocessable_entity }
-      end
+    unless current_instructor.courses.include? @course_module.course
+      redirect_to courses_path
     end
   end
 

@@ -11,6 +11,7 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @course_modules = @course.course_modules.sort_by(&:order_position)
   end
 
   private

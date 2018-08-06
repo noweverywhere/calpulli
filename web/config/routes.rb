@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :course_modules, only: [:index, :show]
+  resources :course_modules, only: [:show]
   resources :help_sections, path: "help", only: [:index, :show]
   resources :courses, only: [:index, :show]
   devise_for :instructors

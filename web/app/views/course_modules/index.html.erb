@@ -17,13 +17,7 @@
         <td><%= course_module.title %></td>
         <td><%= course_module.description %></td>
         <td><%= link_to 'Show', course_module %></td>
-        <td><%= link_to 'Edit', edit_course_module_path(course_module) %></td>
-        <td><%= link_to 'Destroy', course_module, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Course Module', new_course_module_path %>

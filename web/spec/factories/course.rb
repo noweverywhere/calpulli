@@ -18,8 +18,14 @@ FactoryBot.define do
       end
 
       after(:create) do |course, evaluator|
+        sequence(:course_module) do |n|
+          create :course_module, title: "module #{n}", course: course
+        end
+
         create_list(
-          :course_module, evaluator.modules_count, course: course
+          :course_module,
+          evaluator.modules_count,
+          course: course,
         )
       end
     end

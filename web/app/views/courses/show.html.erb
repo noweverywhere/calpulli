@@ -2,3 +2,14 @@
 <h4><%= @course.description %></h4>
 <p><%= @course.introduction %></p>
 <p><%= @course.year %></p>
+<ul>
+  <% @course_modules.each do |course_module| %>
+    <li><%=
+      link_to(
+        course_module.title,
+        course_module_path(course_module),
+        method: :get
+      )
+    %></li>
+  <% end %>
+</ul>
