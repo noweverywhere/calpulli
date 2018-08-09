@@ -2,7 +2,7 @@
   Courses:
   <ul>
     <% current_instructor.courses.each do |course| %>
-      <li> <%= link_to(course.title, course_path(course), method: :get) %> </li>
+      <li> <%= link_to(course.year, course_path(course), method: :get) %> </li>
     <% end %>
   </ul>
 <% else %>
