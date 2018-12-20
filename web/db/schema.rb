@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180808063927) do
+ActiveRecord::Schema.define(version: 20180815100058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,18 @@ ActiveRecord::Schema.define(version: 20180808063927) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_schools_on_name", unique: true
+  end
+
+  create_table "session_activities", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "duration"
+    t.string "module_session_id"
+    t.text "objective"
+    t.text "procedure"
+    t.text "progress_indicators"
+    t.jsonb "resources"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
